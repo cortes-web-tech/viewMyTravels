@@ -41,11 +41,11 @@ main {
   }
 
   .mapWindow{
-    border: 2px solid black;
+    
     height: 26rem;
     width: 70rem;
     margin: auto;
-    margin-top:20px;
+    padding: 1px;
     
   }
 

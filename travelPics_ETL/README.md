@@ -17,3 +17,4 @@ bash getPictureMetadata.sh
 The script will run and display some data along the way.
 
 _This was made as a tool for a website I'm working on._
+_Feel free to use/adjust it as needed._

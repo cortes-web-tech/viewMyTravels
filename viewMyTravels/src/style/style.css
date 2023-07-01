@@ -1,0 +1,54 @@
+
+/* rosewater = #F8C0C8; */
+/* ivory = #EFE7D3; */
+/* lilac = #D3BBDD; */
+/* pewter = #ECE3F0; */
+
+
+body{
+    background-color: #ECE3F0;
+}
+
+main {
+    text-align: center;
+    padding: 1em;
+    max-width: 680;
+    margin: 0 auto;
+    
+  }
+
+  main h1{
+    background-color: #D3BBDD;
+    color: floralwhite;
+    
+  }
+
+.skills {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .skills img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .mapContainer{
+    background-color: #EFE7D3;    
+    
+  }
+
+  .mapWindow{
+    border: 2px solid black;
+    height: 26rem;
+    width: 70rem;
+    margin: auto;
+    margin-top:20px;
+    
+  }
+
+  .tools{
+    background-color: #F8C0C8 ;
+  }

@@ -4,4 +4,4 @@
 - _Change Location button works to change location once_
 - _Change Location changes to new city_
 - _Displaying control interface using data from JSON file_
-- Control Interface WIP\_
+- _Control Interface WIP outputs data on console when clicked._

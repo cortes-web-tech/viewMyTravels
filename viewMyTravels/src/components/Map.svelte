@@ -50,6 +50,11 @@
       map.setZoom(8);
     });
   });
+
+  // Fetches data for each event
+  function changeLocation(name) {
+    console.log(name);
+  }
 </script>
 
 <div class="wrapMap">
@@ -61,8 +66,14 @@
     <div class="line">
       {#each metadata as picture (picture.id)}
         <div>
-          <div class="event">{picture.kMDItemDisplayName}</div>
-          <div class="event">{picture.kMDItemContentCreationDate}</div>
+          <div class="event">
+            <a href="/" on:click={() => changeLocation(picture)}>
+              {picture.kMDItemDisplayName}
+            </a>
+          </div>
+          <div class="event">
+            {Date(picture.kMDItemContentCreationDate)}
+          </div>
         </div>
       {/each}
     </div>

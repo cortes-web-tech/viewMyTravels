@@ -37,7 +37,6 @@
     // Change Location
     // Updates map and marker
     const mapDiv = document.getElementById("changeLocation");
-    const zoomOut = document.getElementById("zoomOut");
     let newPosition = { lat: 41.8889, lng: -87.62452 };
     let update = document.getElementById("changeLocation").nodeValue;
     google.maps.event.addDomListener(mapDiv, "click", () => {
@@ -46,14 +45,23 @@
     });
 
     // Zoom out Event Listener
+    const zoomOut = document.getElementById("zoomOut");
     google.maps.event.addDomListener(zoomOut, "click", () => {
       map.setZoom(8);
+    });
+
+    // Updated Change Location
+    const picture = document.getElementById("1");
+    google.maps.event.addDomListener(picture, "click", () => {
+      console.log("picture");
     });
   });
 
   // Fetches data for each event
   function changeLocation(name) {
-    console.log(name);
+    let id = name.id;
+    center = { lat: name.kMDItemLatitude, lng: name.kMDItemLongitude };
+    console.log(center);
   }
 </script>
 
@@ -67,7 +75,11 @@
       {#each metadata as picture (picture.id)}
         <div>
           <div class="event">
-            <a href="/" on:click={() => changeLocation(picture)}>
+            <a
+              id={picture.id}
+              href="/"
+              on:click={() => changeLocation(picture)}
+            >
               {picture.kMDItemDisplayName}
             </a>
           </div>

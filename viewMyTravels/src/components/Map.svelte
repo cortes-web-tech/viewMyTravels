@@ -6,13 +6,21 @@
 
   import metadata from "../../../travelPics_ETL/parsedOutput.backup.json";
   import { onMount } from "svelte";
+  import "../style/style.css";
 
   onMount(async () => {
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     map = new google.maps.Map(container, {
       zoom,
       center,
       mapTypeId: "satellite",
       tilt: 40,
+    });
+    let newPosition = { lat: 41.8889, lng: -87.62452 };
+    const marker = new AdvancedMarkerElement({
+      map: map,
+      position: newPosition,
+      title: "chicago",
     });
   });
 
@@ -27,7 +35,8 @@
   <button on:click|once={changeLocation(41.8889, -87.62452)}
     >New location</button
   >
-  <div class="viewMap" bind:this={container}>aaa</div>
+
+  <div class="viewMap" bind:this={container} />
   {#each metadata as picture (picture.id)}
     <tr key={picture.id}>
       <td>Latitude: {picture.kMDItemLatitude}</td>

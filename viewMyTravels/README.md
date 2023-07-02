@@ -8,6 +8,8 @@ _Added about page to clean up landing page UI._
 
 _changeLocation() WIP_
 
+_Marker on map WIP_
+
 ## _0.0.1_
 
 _Domain [ViewMyTravels](www.ViewMyTravels.com) purchased._

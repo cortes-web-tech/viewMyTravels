@@ -9,26 +9,24 @@
   import "../style/style.css";
 
   onMount(async () => {
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-    map = new google.maps.Map(container, {
+    const showMap = new google.maps.Map(container, {
       zoom,
       center,
       mapTypeId: "satellite",
-      tilt: 40,
+      mapId: "showMap",
     });
-    let newPosition = { lat: 41.8889, lng: -87.62452 };
-    const marker = new AdvancedMarkerElement({
-      map: map,
-      position: newPosition,
-      title: "chicago",
+    let markerPosition = { lat: 41.8889, lng: -87.62452 };
+    const marker = new google.maps.Marker({
+      showMap,
+      position: markerPosition,
+      title: "marker",
     });
+    marker.setMap(showMap);
   });
 
   function changeLocation(newLat, long) {
     center = { lat: newLat, lng: long };
   }
-
-  console.log(metadata);
 </script>
 
 <div class="wrapMap">

@@ -1,5 +1,13 @@
 # Version History
 
+## _0.0.2_
+
+_{Map} reads json file and outputs data as table on front end. Need to map this to a new function._
+
+_Added about page to clean up landing page UI._
+
+_changeLocation() WIP_
+
 ## _0.0.1_
 
 _Domain [ViewMyTravels](www.ViewMyTravels.com) purchased._

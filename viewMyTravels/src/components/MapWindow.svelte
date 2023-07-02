@@ -1,26 +1,21 @@
 <script>
-  import { Loader } from "@googlemaps/js-api-loader";
-  import "../style/style.css";
-  // AIzaSyCf3Ti2vqg3FkheXkhAgdFDYf12Ytp5OnA
-
-  const loader = new Loader({
-    apiKey: "AIzaSyCf3Ti2vqg3FkheXkhAgdFDYf12Ytp5OnA",
-    version: "weekly",
-  });
-  let map;
-
-  async function initMap() {
-    const { Map } = await google.maps.importLibrary("maps");
-
-    map = new Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
-    });
-  }
-
-  //   initMap();
+  import Map from "./Map.svelte";
+  export let ready;
 </script>
 
-<main>
-  <div class="mapWindow" id="map" />
-</main>
+<svelte:head>
+  <script
+    defer
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6cf3KF3JjJICbjTE5brZ06Lqm_f1CQcQ&callback=initMap"
+  >
+  </script>
+</svelte:head>
+
+<!-- {#if ready} -->
+<Map />
+
+<!-- {/if} -->
+
+<style>
+</style>

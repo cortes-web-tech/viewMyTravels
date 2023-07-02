@@ -27,11 +27,12 @@ main {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
+    padding-bottom: 2px;
   }
 
   .skills img{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
   }
 
@@ -42,7 +43,7 @@ main {
 
   .mapWindow{
     
-    height: 26rem;
+    height: 31rem;
     width: 70rem;
     margin: auto;
     padding: 1px;

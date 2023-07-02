@@ -12,6 +12,6 @@ bash getPictureMetadata.sh
 
 [Instructions](/travelPics_ETL)
 
-_Landing page barebones is built. Color palette may change. Logos found on google aren't transparent PNGs smh graphic designer is my passion_
+_Landing page barebones is built. Color palette may change. Logos found on google aren't transparent PNGs. smh, graphic designer is my passion fivehead_
 
-_Google Map API Implementation WIP_
+_Google Map API loads map_

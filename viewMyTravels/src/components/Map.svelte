@@ -1,57 +1,54 @@
 <script>
   let container;
-  let map;
-  let zoom = 19;
+  let zoom = 13;
   let center = { lat: 39.66528666666667, lng: -105.20575 };
 
   import metadata from "../../../travelPics_ETL/parsedOutput.backup.json";
+  console.log(metadata);
   import { onMount } from "svelte";
   import "../style/style.css";
 
   onMount(async () => {
-    const showMap = new google.maps.Map(container, {
+    // Init Map
+    const map = new google.maps.Map(container, {
       zoom,
       center,
       mapTypeId: "satellite",
-      mapId: "showMap",
+      mapId: "map",
     });
-    let markerPosition = { lat: 41.8889, lng: -87.62452 };
+    // Init Marker
     const marker = new google.maps.Marker({
-      showMap,
-      position: markerPosition,
+      map,
+      position: center,
       title: "marker",
     });
-    marker.setMap(showMap);
-  });
+    marker.setMap(map);
+    // Zoom around, returns to center
+    map.addListener("center_changed", () => {
+      window.setTimeout(() => {
+        map.panTo(marker.getPosition());
+      }, 3000);
+    });
 
-  function changeLocation(newLat, long) {
-    center = { lat: newLat, lng: long };
-  }
+    // Click on marker
+    marker.addListener("click", () => {
+      map.getZoom() < 18 ? map.setZoom(19) : map.setZoom(17);
+    });
+
+    // Change Location
+    // Updates map and marker
+    const mapDiv = document.getElementById("changeLocation");
+    let newPosition = { lat: 41.8889, lng: -87.62452 };
+    google.maps.event.addDomListener(mapDiv, "click", () => {
+      marker.setPosition(newPosition);
+      map.setCenter(newPosition);
+    });
+  });
 </script>
 
 <div class="wrapMap">
-  <button on:click|once={changeLocation(41.8889, -87.62452)}
-    >New location</button
-  >
-
+  <button id="changeLocation">New location</button>
   <div class="viewMap" bind:this={container} />
-  {#each metadata as picture (picture.id)}
-    <tr key={picture.id}>
-      <td>Latitude: {picture.kMDItemLatitude}</td>
-      <td>Longitude: {picture.kMDItemLongitude}</td>
-      <td>Date: {picture.kMDItemContentCreationDate} </td>
-    </tr>
-  {/each}
-  <!-- {#each metadata as picture (picture.id)}
-    {console.log(
-      "Latitude: " +
-        picture.kMDItemLatitude +
-        "\nLongitude: " +
-        picture.kMDItemLongitude +
-        "\nDate Created: " +
-        picture.kMDItemContentCreationDate
-    )}
-  {/each} -->
 </div>
 
 <style>

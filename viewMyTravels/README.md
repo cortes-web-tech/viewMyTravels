@@ -3,12 +3,9 @@
 ## _0.0.2_
 
 _{Map} reads json file and outputs data as table on front end. Need to map this to a new function._
+_Maps JS API being used to show/control Map and Marker._
 
-_Added about page to clean up landing page UI._
-
-_changeLocation() WIP_
-
-_Marker on map WIP_
+_New Location Button changes to a new picture, and updates map._
 
 ## _0.0.1_
 

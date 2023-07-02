@@ -1,6 +1,6 @@
 <script>
   import "../style/style.css";
-  
+
   import MapWindow from "../components/MapWindow.svelte";
 </script>
 

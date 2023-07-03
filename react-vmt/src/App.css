@@ -59,6 +59,10 @@ body{
   justify-content: space-evenly;
 }
 
+.navContainer {
+  background-color: #d3bbdd;
+}
+
 /* -------------------------------- */
 main {
   text-align: center;

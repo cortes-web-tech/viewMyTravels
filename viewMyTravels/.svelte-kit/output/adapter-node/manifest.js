@@ -40,3 +40,5 @@ return {
 	}
 }
 })();
+
+export const prerendered = new Set([]);

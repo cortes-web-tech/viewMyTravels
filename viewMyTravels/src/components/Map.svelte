@@ -3,11 +3,13 @@
   let zoom = 13;
   let center = { lat: 39.66528666666667, lng: -105.20575 };
   import metadata from "../../../travelPics_ETL/parsedOutput.backup.json";
-  import { onMount } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import "../style/style.css";
+  import v1 from "../images/sm Chicago River.jpg";
 
   onMount(async () => {
     // Init Map
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const map = new google.maps.Map(container, {
       zoom,
       center,
@@ -16,12 +18,30 @@
       gestureHandling: "cooperative",
     });
     // Init Marker
+
     const marker = new google.maps.Marker({
       map,
       position: center,
       title: "marker",
     });
+
+    // Info view for when user clicks on marker
+    const infowindow = new google.maps.InfoWindow({
+      content: v1,
+      ariaLabel: "Uluru",
+    });
+
+    const pm = document.createElement("img");
+    pm.src = v1;
+    const pmView = new AdvancedMarkerElement({
+      map,
+      position: center,
+
+      title: "New marker",
+      content: pm,
+    });
     marker.setMap(map);
+    // pmView.setMap(map);
     // Zoom around, returns to center
     map.addListener("center_changed", () => {
       window.setTimeout(() => {
@@ -30,8 +50,13 @@
     });
 
     // Click on marker
+
     marker.addListener("click", () => {
       map.getZoom() < 18 ? map.setZoom(19) : map.setZoom(17);
+      infowindow.open({
+        anchor: marker,
+        map,
+      });
     });
 
     // Change Location
@@ -125,5 +150,9 @@
   .line {
     display: flex;
     justify-content: space-evenly;
+  }
+  img {
+    height: 250px;
+    width: 250px;
   }
 </style>

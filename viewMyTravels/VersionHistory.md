@@ -1,3 +1,8 @@
+# 0.0.3
+
+- _UI lets user control map by clicking on picture title_
+- _on:changeLocation() zooms to 12 at first then to 18. Need to pan zoom better_
+
 # 0.0.2
 
 - _Map/Marker Displays correctly._

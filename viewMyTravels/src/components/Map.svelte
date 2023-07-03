@@ -35,39 +35,56 @@
     });
 
     // Change Location
-    // Updates map and marker
-    const mapDiv = document.getElementById("changeLocation");
-    let newPosition = { lat: 41.8889, lng: -87.62452 };
-    let update = document.getElementById("changeLocation").nodeValue;
-    google.maps.event.addDomListener(mapDiv, "click", () => {
-      marker.setPosition(newPosition);
-      map.setCenter(newPosition);
+    const p1 = document.getElementById("0");
+    const p2 = document.getElementById("1");
+    const p3 = document.getElementById("2");
+    const p4 = document.getElementById("3");
+    const p5 = document.getElementById("4");
+    const p6 = document.getElementById("5");
+    const c1 = { lat: 41.888905, lng: -87.62452 };
+    const c2 = { lat: 41.87798, lng: -87.61882833333334 };
+    const c3 = { lat: 39.66528666666667, lng: -105.20575 };
+    const c4 = { lat: 29.754601390309437, lng: -95.35780226251494 };
+    const c5 = { lat: 29.754755, lng: -95.35896333333334 };
+    // 29.754602390309437, -95.35777946373861
+    const c6 = { lat: 36.12143616666667, lng: -115.1692583333333 };
+    google.maps.event.addDomListener(p1, "click", () => {
+      adjustMap(c1);
+    });
+    google.maps.event.addDomListener(p2, "click", () => {
+      adjustMap(c2);
+    });
+    google.maps.event.addDomListener(p3, "click", () => {
+      adjustMap(c3);
+    });
+    google.maps.event.addDomListener(p4, "click", () => {
+      adjustMap(c4);
+    });
+    google.maps.event.addDomListener(p5, "click", () => {
+      adjustMap(c5);
+    });
+    google.maps.event.addDomListener(p6, "click", () => {
+      adjustMap(c6);
     });
 
-    // Zoom out Event Listener
-    const zoomOut = document.getElementById("zoomOut");
-    google.maps.event.addDomListener(zoomOut, "click", () => {
-      map.setZoom(8);
-    });
-
-    // Updated Change Location
-    const picture = document.getElementById("1");
-    google.maps.event.addDomListener(picture, "click", () => {
-      console.log("picture");
-    });
+    function adjustMap(center) {
+      map.setZoom(12);
+      map.setCenter(center);
+      marker.setPosition(center);
+      setTimeout(() => {
+        map.setZoom(18);
+      }, 3000);
+    }
   });
 
   // Fetches data for each event
   function changeLocation(name) {
     let id = name.id;
     center = { lat: name.kMDItemLatitude, lng: name.kMDItemLongitude };
-    console.log(center);
   }
 </script>
 
 <div class="wrapMap">
-  <button id="changeLocation">New location</button>
-  <button id="zoomOut">Zoom out</button>
   <div class="viewMap" bind:this={container} />
   <div class="timeline">
     <p>Click on title to switch to new location</p>

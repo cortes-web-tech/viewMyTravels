@@ -1,11 +1,13 @@
 # Version History
 
+## _0.0.3_
+
+_UI lets user control map by clicking on picture title_
+
 ## _0.0.2_
 
 _{Map} reads json file and outputs data as table on front end. Need to map this to a new function._
 _Maps JS API being used to show/control Map and Marker._
-
-_New Location Button changes to a new picture, and updates map._
 
 ## _0.0.1_
 

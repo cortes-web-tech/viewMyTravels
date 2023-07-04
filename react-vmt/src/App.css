@@ -64,9 +64,14 @@ body{
 }
 
 .mapControl {
-  /* justify-content: space-around; */
-  text-align: center;
-  
+  display: flex;
+  text-align-last: center;
+  justify-content: space-evenly;
+}
+
+.cc {
+  display: flex;
+  flex-direction: column;
 }
 
 /* -------------------------------- */

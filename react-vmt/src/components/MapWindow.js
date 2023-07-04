@@ -25,22 +25,20 @@ const MapWindow = () => {
         {isLoaded ? (
           <div>
             <Map />
-            <table>
-              <tbody>
-                {data.map((pic, key) => (
-                  <tr key={pic.id} className="mapControl">
-                    <td>{pic.kMDItemDisplayName}</td>
-                    <td>
-                      {Moment(pic.kMDItemContentCreationDate).format(
-                        "MM/DD/YY h:mA"
-                      )}
-                    </td>
-                    <td>Latitude: {pic.kMDItemLatitude}</td>
-                    <td>longitude: {pic.kMDItemLongitude}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="mapControl">
+              {data.map((pic, key) => (
+                <div key={pic.id} className="cc">
+                  <td>{pic.kMDItemDisplayName}</td>
+                  <td>
+                    {Moment(pic.kMDItemContentCreationDate).format(
+                      "MM/DD/YY h:mA"
+                    )}
+                  </td>
+                  <td>Latitude: {pic.kMDItemLatitude}</td>
+                  <td>longitude: {pic.kMDItemLongitude}</td>
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           "loading.."

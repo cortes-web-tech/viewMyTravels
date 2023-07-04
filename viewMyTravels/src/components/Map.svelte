@@ -33,13 +33,14 @@
 
     const pm = document.createElement("img");
     pm.src = v1;
+    /*
     const pmView = new AdvancedMarkerElement({
       map,
       position: center,
 
       title: "New marker",
       content: pm,
-    });
+    });*/
     marker.setMap(map);
     // pmView.setMap(map);
     // Zoom around, returns to center

@@ -1,15 +1,25 @@
 import React from "react";
 import "../App.css";
+import locationData from "../data.json";
 import { useState, useEffect } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 function MapWindow() {
-  console.log(process.env.REACT_APP_GCP_MAPS_API_KEY);
-
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_GCP_MAPS_API_KEY,
   });
-  return <div>{isLoaded ? <Map /> : "loading.."}</div>;
+  return (
+    <div>
+      {isLoaded ? (
+        <div>
+          <Map />
+          <MapControl />
+        </div>
+      ) : (
+        "loading.."
+      )}
+    </div>
+  );
 }
 
 function Map() {
@@ -28,4 +38,21 @@ function Map() {
   );
 }
 
+function MapControl() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData(locationData);
+  }, []);
+  console.log(data);
+  return (
+    <div>
+      {data.map((picture, key) => {
+        <tr key={picture.id}>
+          <td>name</td>
+          <td>date</td>
+        </tr>;
+      })}
+    </div>
+  );
+}
 export default MapWindow;

@@ -4,6 +4,16 @@ import locationData from "../data.json";
 import { useState, useEffect } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 function MapWindow() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setLocationData();
+  }, []);
+
+  function setLocationData() {
+    setData(locationData);
+    console.log(data);
+  }
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_GCP_MAPS_API_KEY,
@@ -13,7 +23,16 @@ function MapWindow() {
       {isLoaded ? (
         <div>
           <Map />
-          <MapControl />
+          {data[0].kMDItemDisplayName}
+          <table>
+            <tbody>
+              {/*data.map((pic, key) => {
+                <tr key={pic.id}>
+                  <td>aaa{pic.kMDItemDisplayName}</td>
+                </tr>;
+              })*/}
+            </tbody>
+          </table>
         </div>
       ) : (
         "loading.."
@@ -25,7 +44,7 @@ function MapWindow() {
 function Map() {
   const [longitude, setLongitude] = useState(-105.20575);
   const [latitude, setlatitude] = useState(39.66528666666667);
-
+  console.log(latitude);
   return (
     <GoogleMap
       zoom={18}
@@ -39,19 +58,14 @@ function Map() {
 }
 
 function MapControl() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    setData(locationData);
-  }, []);
-  console.log(data);
   return (
     <div>
-      {data.map((picture, key) => {
+      {/*data.map((picture, key) => {
         <tr key={picture.id}>
           <td>name</td>
           <td>date</td>
         </tr>;
-      })}
+      })*/}
     </div>
   );
 }

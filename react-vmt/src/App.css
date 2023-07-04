@@ -63,6 +63,12 @@ body{
   background-color: #d3bbdd;
 }
 
+.mapControl {
+  /* justify-content: space-around; */
+  text-align: center;
+  
+}
+
 /* -------------------------------- */
 main {
   text-align: center;

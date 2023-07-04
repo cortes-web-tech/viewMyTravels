@@ -5,7 +5,7 @@ import pythonLogo from "../images/python.jpg";
 function Skills() {
   return (
     <div>
-      <ul class="skills">
+      <ul className="skills">
         <li>
           <img alt="React Logo" src={reactLogo} />
         </li>

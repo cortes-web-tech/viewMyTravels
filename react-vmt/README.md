@@ -12,3 +12,4 @@ _Trouble mapping/displaying location data array 🤔_
 _Mapping wasn't working because was using curly brackets into parenthesis. Fixed it._
 _Displaying picture metadata on UI below map_
 _Formatted UI metadata display_
+_UI updates. Button console logs new center location_

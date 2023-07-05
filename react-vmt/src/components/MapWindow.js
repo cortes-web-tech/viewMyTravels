@@ -7,6 +7,10 @@ import p3 from "../images/Flume Red Rocks.jpg";
 import p4 from "../images/Summer Vibes 22.jpg";
 import p5 from "../images/Texas Shaped Lazy River.jpg";
 import p6 from "../images/venetian viewing mirage.jpg";
+import p7 from "../images/Baldwin hills scenic overlook 1.jpg";
+import p8 from "../images/Huntington library 1.jpg";
+import p9 from "../images/Huntington library 2.jpg";
+import p10 from "../images/Natural History Museum LA County.jpg";
 import Moment from "moment";
 import { useState, useEffect } from "react";
 import {
@@ -40,7 +44,7 @@ function Map() {
   const [longitude, setLongitude] = useState(-105.20575);
   const [latitude, setlatitude] = useState(39.66528666666667);
   const [data, setData] = useState(locationData);
-  const [zoom, setZoom] = useState(18);
+  const [zoom, setZoom] = useState(14);
   const [pic, setPic] = useState(p3);
   const [opacity, setOpacity] = useState(0);
   const [toggle, setToggle] = useState(false);
@@ -64,15 +68,26 @@ function Map() {
       }
     }, 3000);
   }
+  function handleZoom() {
+    var finZoom = 0;
+    let interval = setInterval(() => {
+      setZoom(zoom + 0.5);
+      finZoom += 1;
+      if (finZoom === 5) {
+        clearInterval(interval);
+      }
+    }, 100);
+  }
 
   function updateLocation(id, lat, lng) {
     const center = { lat: lat, lng: lng };
     setlatitude(lat);
     setLongitude(lng);
-    setZoom(16);
+    setZoom(14);
     switch (id) {
       case 0:
         setPic(p1);
+        handleZoom();
         break;
       case 1:
         setPic(p2);
@@ -82,28 +97,23 @@ function Map() {
         break;
       case 3:
         setPic(p5);
-
-        if (id == 3) {
-          // handleToggle();
-        }
-
         break;
       case 4:
         setPic(p6);
         break;
       case 5:
-        setPic(p6);
+        setPic(p7);
+        break;
+      case 6:
+        setPic(p8);
+        break;
+      case 7:
+        setPic(p10);
+        break;
+      case 9:
+        // setPic(p10);
         break;
     }
-
-    var finZoom = 0;
-    let interval = setInterval(() => {
-      setZoom(zoom + 0.2);
-      finZoom += 1;
-      if (finZoom === 5) {
-        clearInterval(interval);
-      }
-    }, 1000);
   }
   return (
     <div>

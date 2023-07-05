@@ -61,6 +61,7 @@ function Map() {
         break;
       case 3:
         setPic(p4);
+        setZoom(17);
         break;
       case 4:
         setPic(p5);

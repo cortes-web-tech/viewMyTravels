@@ -1,9 +1,16 @@
 import React from "react";
 import "../App.css";
 import locationData from "../data.json";
+import p1 from "../images/Chicago River 1.jpg";
 import Moment from "moment";
 import { useState, useEffect } from "react";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+
 const MapWindow = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -53,7 +60,9 @@ function Map() {
         mapContainerClassName="mapWindow"
         mapTypeId="satellite"
       >
-        <Marker position={{ lat: latitude, lng: longitude }} />
+        <div>
+          <Marker position={{ lat: latitude, lng: longitude }}></Marker>
+        </div>
       </GoogleMap>
       <div>
         {data != "" ? (

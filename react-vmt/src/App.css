@@ -73,6 +73,10 @@ body{
   flex-direction: column;
 }
 
+.pic {
+  height: 200px;
+}
+
 /* -------------------------------- */
 main {
   text-align: center;

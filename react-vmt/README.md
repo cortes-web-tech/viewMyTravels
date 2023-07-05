@@ -9,6 +9,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
 - _Info Window correctly implemented. Pictures handled correctly when changing locations._
 - _Updated favicon, and reduced image file size to help reduce load times._
 - _Updated UI to remove duplicate entry location, while adding a toggle animation. Although the animation is buggy.._
+  _Added more picture/location data. Functionality holds, although these new locations don't have pictures displaying on UI yet._
 
 ## v0.0.3
 

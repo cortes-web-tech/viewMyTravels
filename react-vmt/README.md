@@ -2,6 +2,10 @@
 
 _Ported app to React because of issues hosting/rendering Svelte app_
 
+## v0.0.4
+
+_UI Button changes locations_
+
 ## v0.0.3
 
 _Displaying map on home page_

@@ -65,12 +65,11 @@ body{
 
 .mapControl {
   display: flex;
-  text-align-last: center;
-  justify-content: space-evenly;
 }
 
 .cc {
   display: flex;
+  
   flex-direction: column;
 }
 

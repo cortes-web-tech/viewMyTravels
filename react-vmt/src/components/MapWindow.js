@@ -28,14 +28,11 @@ function Map() {
   const [longitude, setLongitude] = useState(-105.20575);
   const [latitude, setlatitude] = useState(39.66528666666667);
   const [data, setData] = useState(locationData);
-  console.log(data);
 
   function updateLocation(lat, lng) {
     const center = { lat: lat, lng: lng };
-    // setlatitude(lat);
-    // setLongitude(lng);
-    // const map =
-    console.log(center);
+    setlatitude(lat);
+    setLongitude(lng);
   }
   return (
     <div>
@@ -50,8 +47,8 @@ function Map() {
       </GoogleMap>
       <div>
         {data != "" ? (
-          <table className="mapControl">
-            <tbody>
+          <table>
+            <tbody className="mapControl">
               {data.map((pic, key) => (
                 <tr key={pic.id} className="cc">
                   <td>

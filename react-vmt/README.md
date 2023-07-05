@@ -8,6 +8,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
 - _When changing locations, zooms to 14 then pans in._
 - _Info Window correctly implemented. Pictures handled correctly when changing locations._
 - _Updated favicon, and reduced image file size to help reduce load times._
+- _Updated UI to remove duplicate entry location, while adding a toggle animation. Although the animation is buggy.._
 
 ## v0.0.3
 

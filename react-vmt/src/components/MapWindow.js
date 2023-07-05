@@ -43,12 +43,33 @@ function Map() {
   const [zoom, setZoom] = useState(18);
   const [pic, setPic] = useState(p3);
   const [opacity, setOpacity] = useState(0);
+  const [toggle, setToggle] = useState(false);
+
+  function handleToggle() {
+    var iterations = 0;
+    let intervals = setInterval(() => {
+      iterations += 1;
+
+      if (iterations > 5) {
+        clearInterval(intervals);
+      }
+      if (toggle == false) {
+        console.log(toggle);
+        setPic(p5);
+        setToggle(true);
+      } else {
+        console.log(toggle);
+        setPic(p4);
+        setToggle(false);
+      }
+    }, 3000);
+  }
 
   function updateLocation(id, lat, lng) {
     const center = { lat: lat, lng: lng };
     setlatitude(lat);
     setLongitude(lng);
-    setZoom(14);
+    setZoom(16);
     switch (id) {
       case 0:
         setPic(p1);
@@ -60,11 +81,15 @@ function Map() {
         setPic(p3);
         break;
       case 3:
-        setPic(p4);
-        setZoom(17);
+        setPic(p5);
+
+        if (id == 3) {
+          // handleToggle();
+        }
+
         break;
       case 4:
-        setPic(p5);
+        setPic(p6);
         break;
       case 5:
         setPic(p6);
@@ -75,7 +100,7 @@ function Map() {
     let interval = setInterval(() => {
       setZoom(zoom + 0.2);
       finZoom += 1;
-      if (finZoom === 4) {
+      if (finZoom === 5) {
         clearInterval(interval);
       }
     }, 1000);

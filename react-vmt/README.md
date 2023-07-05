@@ -11,6 +11,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
 - _Updated UI to remove duplicate entry location, while adding a toggle animation. Although the animation is buggy.._
   _Added more picture/location data. Functionality holds, although these new locations don't have pictures displaying on UI yet._
   _Added picture functionality to the latest data, but broke the zoom functionality 😪_
+  _Sorted data.json, UI changes to make buttons more interactive_
 
 ## v0.0.3
 

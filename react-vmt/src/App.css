@@ -65,12 +65,15 @@ body{
 
 .mapControl {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
 }
 
 .cc {
-  display: flex;
-  
-  flex-direction: column;
+  /* display: flex; */
+  /* flex: 1; */
+  /* flex-direction: row; */
 }
 
 .pic {
@@ -81,8 +84,15 @@ body{
   animation-fill-mode: forwards;
 }
 
+.infoWindow:hover{
+  
+  margin-top: 300px;
+}
+
 .pic:hover{
-  height: 250px
+  height: 250px;
+  position: relative;
+  /* margin-top: 300px; */
 }
 
 @keyframes showPic {
@@ -90,6 +100,24 @@ body{
   100% {opacity: 1;}
 }
 
+.selectLocation{ 
+  width: 200px;
+}
+
+/* rosewater = #F8C0C8; */
+/* ivory = #EFE7D3; */
+/* pewter = #ECE3F0; */
+/* lilac = #D3BBDD; */
+.locationButton{
+  height: 50px;
+  background-color: #F8C0C8;
+  border-radius: 10px;
+}
+
+.locationButton:hover {
+  background-color: #D3BBDD;
+  color:floralwhite
+}
 /* -------------------------------- */
 main {
   text-align: center;

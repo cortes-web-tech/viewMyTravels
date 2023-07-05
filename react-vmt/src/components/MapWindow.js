@@ -1,16 +1,16 @@
 import React from "react";
 import "../App.css";
 import locationData from "../data.json";
-import p1 from "../images/Chicago River.jpg";
-import p2 from "../images/Chicago Adventures.jpg";
-import p3 from "../images/Flume Red Rocks.jpg";
-import p4 from "../images/Summer Vibes 22.jpg";
-import p5 from "../images/Texas Shaped Lazy River.jpg";
-import p6 from "../images/venetian viewing mirage.jpg";
-import p7 from "../images/Baldwin hills scenic overlook 1.jpg";
+import p1 from "../images/Chicago Adventures.jpg";
+import p2 from "../images/Chicago River.jpg";
+import p3 from "../images/Baldwin hills scenic overlook 1.jpg";
+import p4 from "../images/Flume Red Rocks.jpg";
+import p5 from "../images/Summer Vibes 22.jpg";
+import p6 from "../images/Texas Shaped Lazy River.jpg";
+import p7 from "../images/Natural History Museum LA County.jpg";
 import p8 from "../images/Huntington library 1.jpg";
 import p9 from "../images/Huntington library 2.jpg";
-import p10 from "../images/Natural History Museum LA County.jpg";
+import p10 from "../images/venetian viewing mirage.jpg";
 import Moment from "moment";
 import { useState, useEffect } from "react";
 import {
@@ -71,7 +71,7 @@ function Map() {
   function handleZoom() {
     var finZoom = 0;
     let interval = setInterval(() => {
-      setZoom(zoom + 0.5);
+      setZoom(zoom + 0.2);
       finZoom += 1;
       if (finZoom === 5) {
         clearInterval(interval);
@@ -87,7 +87,6 @@ function Map() {
     switch (id) {
       case 0:
         setPic(p1);
-        handleZoom();
         break;
       case 1:
         setPic(p2);
@@ -96,7 +95,7 @@ function Map() {
         setPic(p3);
         break;
       case 3:
-        setPic(p5);
+        setPic(p4);
         break;
       case 4:
         setPic(p6);
@@ -114,10 +113,12 @@ function Map() {
         // setPic(p10);
         break;
     }
+    // handleZoom();
   }
   return (
     <div>
       <GoogleMap
+        clickableIcons="false"
         id="map"
         zoom={zoom}
         center={{ lat: latitude, lng: longitude }}
@@ -126,7 +127,10 @@ function Map() {
       >
         <div>
           <Marker position={{ lat: latitude, lng: longitude }}></Marker>
-          <InfoWindow position={{ lat: latitude + 0.000015, lng: longitude }}>
+          <InfoWindow
+            className="infoWindow"
+            position={{ lat: latitude + 0.000015, lng: longitude }}
+          >
             <div id="pic">
               <img
                 className="pic"
@@ -140,33 +144,32 @@ function Map() {
       </GoogleMap>
       <div>
         {data != "" ? (
-          <table>
-            <tbody className="mapControl">
-              {data.map((pic, key) => (
-                <tr key={pic.id} className="cc">
-                  <td>
-                    <button
-                      href=""
-                      onClick={(e) =>
-                        updateLocation(
-                          pic.id,
-                          pic.kMDItemLatitude,
-                          pic.kMDItemLongitude
-                        )
-                      }
-                    >
-                      {pic.kMDItemDisplayName}
-                    </button>
-                  </td>
-                  <td>
-                    {Moment(pic.kMDItemContentCreationDate).format(
-                      "MM/DD/YY h:m A"
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="mapControl">
+            {data.map((pic, key) => (
+              <ul key={pic.id} className="cc">
+                <div className="selectLocation">
+                  <button
+                    className="locationButton"
+                    href=""
+                    onClick={(e) =>
+                      updateLocation(
+                        pic.id,
+                        pic.kMDItemLatitude,
+                        pic.kMDItemLongitude
+                      )
+                    }
+                  >
+                    {pic.kMDItemDisplayName}
+                  </button>
+                </div>
+                <td>
+                  {Moment(pic.kMDItemContentCreationDate).format(
+                    "MM/DD/YY h:m A"
+                  )}
+                </td>
+              </ul>
+            ))}
+          </div>
         ) : (
           "loading"
         )}

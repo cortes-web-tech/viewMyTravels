@@ -5,6 +5,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
 ## v0.0.4
 
 _UI Button changes locations_
+_When changing locations, zooms to 14 then pans in._
 
 ## v0.0.3
 

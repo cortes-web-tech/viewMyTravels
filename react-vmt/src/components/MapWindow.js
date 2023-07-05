@@ -28,17 +28,27 @@ function Map() {
   const [longitude, setLongitude] = useState(-105.20575);
   const [latitude, setlatitude] = useState(39.66528666666667);
   const [data, setData] = useState(locationData);
+  const [zoom, setZoom] = useState(18);
 
   function updateLocation(lat, lng) {
     const center = { lat: lat, lng: lng };
     setlatitude(lat);
     setLongitude(lng);
+    setZoom(14);
+    var finZoom = 0;
+    let interval = setInterval(() => {
+      setZoom(zoom + 0.2);
+      finZoom += 1;
+      if (finZoom === 4) {
+        clearInterval(interval);
+      }
+    }, 1000);
   }
   return (
     <div>
       <GoogleMap
         id="map"
-        zoom={18}
+        zoom={zoom}
         center={{ lat: latitude, lng: longitude }}
         mapContainerClassName="mapWindow"
         mapTypeId="satellite"

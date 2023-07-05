@@ -74,7 +74,20 @@ body{
 }
 
 .pic {
-  height: 200px;
+  height: 150px;
+  opacity: 0;
+  animation: showPic;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.pic:hover{
+  height: 250px
+}
+
+@keyframes showPic {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 /* -------------------------------- */

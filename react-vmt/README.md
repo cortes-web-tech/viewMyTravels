@@ -6,7 +6,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
 
 _UI Button changes locations_
 _When changing locations, zooms to 14 then pans in._
-_Trying to implement InfoWindow._
+_Info Window correctly implemented. Pictures handled correctly when changing locations._
 
 ## v0.0.3
 

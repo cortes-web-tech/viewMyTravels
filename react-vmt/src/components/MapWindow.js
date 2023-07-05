@@ -1,7 +1,12 @@
 import React from "react";
 import "../App.css";
 import locationData from "../data.json";
-import p1 from "../images/Chicago River 1.jpg";
+import p1 from "../images/Chicago River.jpg";
+import p2 from "../images/Chicago Adventures.jpg";
+import p3 from "../images/Flume Red Rocks.jpg";
+import p4 from "../images/Summer Vibes 22.jpg";
+import p5 from "../images/Texas Shaped Lazy River.jpg";
+import p6 from "../images/venetian viewing mirage.jpg";
 import Moment from "moment";
 import { useState, useEffect } from "react";
 import {
@@ -36,12 +41,35 @@ function Map() {
   const [latitude, setlatitude] = useState(39.66528666666667);
   const [data, setData] = useState(locationData);
   const [zoom, setZoom] = useState(18);
+  const [pic, setPic] = useState(p3);
+  const [opacity, setOpacity] = useState(0);
 
-  function updateLocation(lat, lng) {
+  function updateLocation(id, lat, lng) {
     const center = { lat: lat, lng: lng };
     setlatitude(lat);
     setLongitude(lng);
     setZoom(14);
+    switch (id) {
+      case 0:
+        setPic(p1);
+        break;
+      case 1:
+        setPic(p2);
+        break;
+      case 2:
+        setPic(p3);
+        break;
+      case 3:
+        setPic(p4);
+        break;
+      case 4:
+        setPic(p5);
+        break;
+      case 5:
+        setPic(p6);
+        break;
+    }
+
     var finZoom = 0;
     let interval = setInterval(() => {
       setZoom(zoom + 0.2);
@@ -62,6 +90,16 @@ function Map() {
       >
         <div>
           <Marker position={{ lat: latitude, lng: longitude }}></Marker>
+          <InfoWindow position={{ lat: latitude + 0.000015, lng: longitude }}>
+            <div id="pic">
+              <img
+                className="pic"
+                id="pic"
+                src={pic}
+                style={{ opacity: opacity }}
+              />
+            </div>
+          </InfoWindow>
         </div>
       </GoogleMap>
       <div>
@@ -75,6 +113,7 @@ function Map() {
                       href=""
                       onClick={(e) =>
                         updateLocation(
+                          pic.id,
                           pic.kMDItemLatitude,
                           pic.kMDItemLongitude
                         )

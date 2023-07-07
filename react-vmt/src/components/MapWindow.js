@@ -10,7 +10,8 @@ import p6 from "../images/Texas Shaped Lazy River.jpg";
 import p7 from "../images/Natural History Museum LA County.jpg";
 import p8 from "../images/Huntington library 1.jpg";
 import p9 from "../images/Huntington library 2.jpg";
-import p10 from "../images/venetian viewing mirage.jpg";
+import p11 from "../images/Venetian Sunrise.jpg";
+import p12 from "../images/Winter Hiking.jpg";
 import Moment from "moment";
 import { useState, useEffect } from "react";
 import {
@@ -44,9 +45,9 @@ function Map() {
   const [longitude, setLongitude] = useState(-105.20575);
   const [latitude, setlatitude] = useState(39.66528666666667);
   const [data, setData] = useState(locationData);
-  const [zoom, setZoom] = useState(14);
-  const [pic, setPic] = useState(p3);
-  const [opacity, setOpacity] = useState(0);
+  const [zoom, setZoom] = useState(18);
+  const [pic, setPic] = useState(p4);
+  const [opacity, setOpacity] = useState(1);
   const [toggle, setToggle] = useState(false);
 
   function handleToggle() {
@@ -90,30 +91,39 @@ function Map() {
         break;
       case 1:
         setPic(p2);
+        setZoom(15);
         break;
       case 2:
         setPic(p3);
+        setZoom(16);
         break;
       case 3:
+        setZoom(19);
         setPic(p4);
         break;
       case 4:
         setPic(p6);
+        setZoom(17);
         break;
       case 5:
         setPic(p7);
+        setZoom(18);
         break;
       case 6:
         setPic(p8);
+        setZoom(20);
         break;
       case 7:
-        setPic(p10);
+        setPic(p11);
+        setZoom(19);
+        break;
+      case 8:
+        setPic(p12);
+        setZoom(20.5);
         break;
       case 9:
-        // setPic(p10);
         break;
     }
-    // handleZoom();
   }
   return (
     <div>
@@ -164,7 +174,7 @@ function Map() {
                 </div>
                 <td>
                   {Moment(pic.kMDItemContentCreationDate).format(
-                    "MM/DD/YY h:m A"
+                    "MM/DD/YY h:mm A"
                   )}
                 </td>
               </ul>

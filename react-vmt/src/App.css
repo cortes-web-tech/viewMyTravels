@@ -66,7 +66,7 @@ body{
 .mapControl {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   
 }
 
@@ -101,7 +101,7 @@ body{
 }
 
 .selectLocation{ 
-  width: 200px;
+  width: 160px;
 }
 
 /* rosewater = #F8C0C8; */
@@ -110,6 +110,7 @@ body{
 /* lilac = #D3BBDD; */
 .locationButton{
   height: 50px;
+  
   background-color: #F8C0C8;
   border-radius: 10px;
 }

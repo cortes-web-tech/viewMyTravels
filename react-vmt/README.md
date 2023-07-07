@@ -12,6 +12,7 @@ _Ported app to React because of issues hosting/rendering Svelte app_
   _Added more picture/location data. Functionality holds, although these new locations don't have pictures displaying on UI yet._
   _Added picture functionality to the latest data, but broke the zoom functionality 😪_
   _Sorted data.json, UI changes to make buttons more interactive_
+  - _Added more data. Fixed a bug where initial location on load would be incorrect._
 
 ## v0.0.3
 
